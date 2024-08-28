@@ -1,0 +1,136 @@
+//2.13
+/* let i = 0;
+while (i < 3) { // muestra 0, luego 1, luego 2
+  alert( i );
+  i++;
+} */
+
+  //2 forma
+/* let i = 0;
+do {
+  alert( i );
+  i++;
+} while (i < 3); */
+
+//3 forma
+/* for (let i = 0; i < 3; i++) { // muestra 0, luego 1, luego 2
+  alert(i);
+} */
+
+//4 forma
+/* for (let i = 0; i < 10; i++) {
+
+  // si es verdadero, saltar el resto del cuerpo
+  if (i % 2 == 0) continue;
+
+  alert(i); // 1, luego 3, 5, 7, 9
+} */
+
+  //5 forma
+/*   for (let i = 0; i < 6; i++) {
+
+    for (let j = 0; j < 9; j++) {
+  
+      let input = prompt(`Valor en las coordenadas (${i},${j})`, '');
+  
+      // ¿Y si quiero salir de aquí hacia Listo (debajo)?
+  
+    }
+  }
+  
+  alert('Listo!'); */
+
+
+//2.14
+/* let a = 2 + 2;
+
+switch (a) {
+  case 3:
+    alert( 'Muy pequeño' );
+    break;
+  case 4:
+    alert( 'papaaaaa' );
+    break;
+  case 5:
+    alert( 'Muy grande' );
+    break;
+  default:
+    alert( "Desconozco estos valores" );
+} */
+
+    //2 forma
+/*     let a = 2 + 2;
+
+switch (a) {
+  case 3:
+    alert( 'nezder' );
+  case 4:
+    alert( 'es' );
+  case 5:
+    alert( 'muy pendejo' );
+  default:
+    alert( "Desconozco estos valores" );
+} */
+
+
+    //2.15
+/*     function showMessage() {
+      alert( 'hola mucho gusto' );
+    }
+    
+    showMessage();
+    showMessage(); */
+
+
+    //2.16
+/*     function sayHi() { 
+      alert( "buenas noches" );
+    }
+    
+    let func = sayHi;    
+    
+    func();      
+    sayHi();  */
+
+
+    //2.17
+/*     let double = n => n * 2;
+
+alert( double(10) ); */
+
+//2.18
+/* alert("agua de jamaica.")
+[1, 2].forEach(alert) */
+
+
+//3.1
+// open console to see
+/* for (let i = 1; i < 10; i++) {
+  console.log("value,", i);
+} */
+
+
+  //3.2
+
+
+  //3.3
+/*   function showPrimes(n) {
+
+    for (let i = 2; i < n; i++) {
+      if (!isPrime(i)) continue;
+  
+      alert(i);
+    }
+  }
+  
+  function isPrime(n) {
+    for (let i = 2; i < n; i++) {
+      if (n % i == 0) return false;
+    }
+  
+    return true;
+  } */
+
+
+    //3.4
+    
