@@ -1,136 +1,239 @@
-//2.13
-/* let i = 0;
-while (i < 3) { // muestra 0, luego 1, luego 2
-  alert( i );
-  i++;
-} */
+// Bucles: while y for
 
-  //2 forma
-/* let i = 0;
-do {
-  alert( i );
-  i++;
-} while (i < 3); */
+// Bucle while
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
 
-//3 forma
-/* for (let i = 0; i < 3; i++) { // muestra 0, luego 1, luego 2
-  alert(i);
-} */
+// Bucle for
+for (let j = 0; j < 5; j++) {
+    console.log(j);
+}
 
-//4 forma
-/* for (let i = 0; i < 10; i++) {
+// La sentencia "switch"
+const color = 'azul';
+switch (color) {
+    case 'negro':
+        console.log('Color negro');
+        break;
+    case 'verde':
+        console.log('Color azul');
+        break;
+    default:
+        console.log('Color desconocido');
+}
 
-  // si es verdadero, saltar el resto del cuerpo
-  if (i % 2 == 0) continue;
+// Funciones
+function saludar(nombre) {
+    return `Hola, ${nombre}!`;
+}
+console.log(saludar('johann'));
 
-  alert(i); // 1, luego 3, 5, 7, 9
-} */
+// Expresiones de función
+const sumar = function(a, b) {
+    return a + b;
+};
+console.log(sumar(5, 3));
 
-  //5 forma
-/*   for (let i = 0; i < 6; i++) {
+// Funciones Flecha, lo básico
+const restar = (a, b) => a - b;
+console.log(restar(10, 4));
 
-    for (let j = 0; j < 9; j++) {
-  
-      let input = prompt(`Valor en las coordenadas (${i},${j})`, '');
-  
-      // ¿Y si quiero salir de aquí hacia Listo (debajo)?
-  
+// Especiales JavaScript
+// Variable especial
+const pi = 3.15489;
+console.log(`El valor de pi es ${pi}`);
+
+// Calidad del código (buena práctica: nombres descriptivos y formato consistente)
+// Código de calidad
+const calcularArea = (radio) => Math.PI * Math.pow(radio, 2);
+
+// Debugging en el navegador
+// Utiliza `console.log()` para depurar
+const debug = (value) => {
+    console.log('Valor:', value);
+};
+debug(42);
+
+// Estilo de codificación
+// Usa nombres descriptivos y formato consistente
+function obtenerUsuario(nombre, edad) {
+    return {
+        nombre,
+        edad
+    };
+}
+
+// Comentarios
+// Este es un comentario de una sola línea
+
+/*
+  Este es un comentario
+  de varias líneas
+*/
+
+// Código ninja (trucos avanzados)
+// Operador ternario
+const esAdulto = (edad) => edad >= 18 ? 'Adulto' : 'Menor';
+console.log(esAdulto(20));
+
+// Automatización de pruebas con Mocha
+// Instalación: npm install --save-dev mocha
+// Ejemplo básico de prueba con Mocha
+const assert = require('assert');
+describe('Matemáticas', function() {
+    it('debería sumar dos números correctamente', function() {
+        assert.strictEqual(2 + 2, 4);
+    });
+});
+
+// Polyfills y transpiladores
+// Polyfill para Array.prototype.includes en navegadores antiguos
+if (!Array.prototype.includes) {
+    Array.prototype.includes = function(element) {
+        return this.indexOf(element) !== -1;
+    };
+}
+
+// Objetos: lo básico
+const persona = {
+    nombre: 'naomi',
+    edad: 30
+};
+console.log(persona.nombre);
+
+// Referencias de objetos y copia
+const objeto1 = { valor: 1 };
+const objeto2 = objeto1; // Referencia al mismo objeto
+objeto2.valor = 2;
+console.log(objeto1.valor); // 2
+
+// Copia superficial de objeto
+const objeto3 = { ...objeto1 };
+objeto3.valor = 3;
+console.log(objeto1.valor); // 2
+console.log(objeto3.valor); // 3
+
+// Recolección de basura
+// JavaScript maneja la recolección de basura automáticamente, sin código especial
+
+// Métodos de objeto, "this"
+const coche = {
+    marca: 'Toyota',
+    mostrarMarca() {
+        console.log(this.marca);
     }
-  }
-  
-  alert('Listo!'); */
+};
+coche.mostrarMarca(); // maclaren
 
+// Constructor, operador "new"
+function Animal(nombre) {
+    this.nombre = nombre;
+}
+const perro = new Animal('Rex');
+console.log(perro.nombre); // Rex
 
-//2.14
-/* let a = 2 + 2;
-
-switch (a) {
-  case 3:
-    alert( 'Muy pequeño' );
-    break;
-  case 4:
-    alert( 'papaaaaa' );
-    break;
-  case 5:
-    alert( 'Muy grande' );
-    break;
-  default:
-    alert( "Desconozco estos valores" );
-} */
-
-    //2 forma
-/*     let a = 2 + 2;
-
-switch (a) {
-  case 3:
-    alert( 'nezder' );
-  case 4:
-    alert( 'es' );
-  case 5:
-    alert( 'muy pendejo' );
-  default:
-    alert( "Desconozco estos valores" );
-} */
-
-
-    //2.15
-/*     function showMessage() {
-      alert( 'hola mucho gusto' );
+// Encadenamiento opcional '?.'
+const usuario = {
+    perfil: {
+        nombre: 'johann'
     }
-    
-    showMessage();
-    showMessage(); */
+};
+console.log(usuario.perfil?.nombre); // johann
+console.log(usuario.direccion?.calle); // undefined
 
+// Tipo Symbol
+const simbolo = Symbol('descripcion');
+console.log(simbolo.toString()); // Symbol(descripcion)
 
-    //2.16
-/*     function sayHi() { 
-      alert( "buenas noches" );
+// Conversión de objeto a valor primitivo
+const objetoPrimitivo = {
+    valor: 10,
+    [Symbol.toPrimitive](hint) {
+        if (hint === 'number') {
+            return this.valor;
+        }
+        return null;
     }
-    
-    let func = sayHi;    
-    
-    func();      
-    sayHi();  */
+};
+console.log(+objetoPrimitivo); // 10
 
+// Tipos de datos
+const numero = 123; // Número
+const texto = "Hola"; // String
+const booleano = true; // Boolean
+const objeto = {}; // Objeto
+const arreglo = []; // Array
+const indefinido = undefined; // Undefined
+const nulo = null; // Null
 
-    //2.17
-/*     let double = n => n * 2;
+// Métodos en tipos primitivos
+const cadena = 'JavaScript';
+console.log(cadena.toUpperCase()); // JAVASCRIPT
 
-alert( double(10) ); */
+// Números
+const num = 123.456;
+console.log(num.toFixed(2)); // 123.46
 
-//2.18
-/* alert("agua de jamaica.")
-[1, 2].forEach(alert) */
+// Strings
+const str = 'Hola Mundo';
+console.log(str.length); // 10
 
+// Arrays
+const array = [1, 2, 3];
+console.log(array[0]); // 1
 
-//3.1
-// open console to see
-/* for (let i = 1; i < 10; i++) {
-  console.log("value,", i);
-} */
+// Métodos de arrays
+const frutas = ['manzana', 'banana', 'cereza'];
+console.log(frutas.join(', ')); // fresas, banana, naranja
 
+// Iterables
+const iterable = [1, 2, 3];
+for (const valor of iterable) {
+    console.log(valor);
+}
 
-  //3.2
+// Map y Set
+const map = new Map();
+map.set('clave', 'valor');
+console.log(map.get('clave')); // valor
 
+const set = new Set();
+set.add(1);
+set.add(2);
+console.log(set.has(1)); // true
 
-  //3.3
-/*   function showPrimes(n) {
+// WeakMap y WeakSet
+const weakMap = new WeakMap();
+const obj = {};
+weakMap.set(obj, 'valor');
+console.log(weakMap.get(obj)); // valor
 
-    for (let i = 2; i < n; i++) {
-      if (!isPrime(i)) continue;
-  
-      alert(i);
-    }
-  }
-  
-  function isPrime(n) {
-    for (let i = 2; i < n; i++) {
-      if (n % i == 0) return false;
-    }
-  
-    return true;
-  } */
+const weakSet = new WeakSet();
+weakSet.add(obj);
+console.log(weakSet.has(obj)); // true
 
+// Object.keys, values, entries
+const objetoEjemplo = { a: 1, b: 2 };
+console.log(Object.keys(objetoEjemplo)); // ['a', 'b']
+console.log(Object.values(objetoEjemplo)); // [1, 2]
+console.log(Object.entries(objetoEjemplo)); // [['a', 1], ['b', 2]]
 
-    //3.4
-    
+// Asignación desestructurante
+const [x, y] = [1, 2];
+console.log(x, y); // 1 2
+const { a, b } = { a: 10, b: 20 };
+console.log(a, b); // 10 20
+
+// Fecha y Hora
+const ahora = new Date();
+console.log(ahora.toLocaleString()); // Fecha y hora actual
+
+// Métodos JSON, toJSON
+const objetoJson = { nombre: 'Juan', edad: 25 };
+const jsonString = JSON.stringify(objetoJson);
+console.log(jsonString); // {"nombre":"Juan","edad":25}
+const objetoParseado = JSON.parse(jsonString);
+console.log(objetoParseado); // { nombre: 'Juan', edad: 25 }
